@@ -1,0 +1,57 @@
+Area of circle :
+
+=====================================================
+ apex Class  code :
+====================================================
+
+public class first {
+    public Double val1 {get;set;}
+    public Double result {get;set;}
+    public first()
+    {
+    }
+    public void find()
+    {
+        result=(22/7)*val1*val1;
+    }
+  
+
+}
+====================================================
+ visualforcePage :
+====================================================
+
+<apex:page controller="first">
+
+<apex:form >
+    <apex:pageBlock>
+        <apex:pageBlockSection>
+            <apex:outputText>Area of Circle Calculator</apex:outputText>
+            <br/><br/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection>
+            <apex:pageBlockSectionItem>
+                <apex:outputLabel value="Enter Radius of Circle :"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem>
+                <apex:inputText value="{!val1}"/>
+            </apex:pageBlockSectionItem> 
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection>
+            <apex:pageBlockSectionItem>
+                <apex:outputLabel value="Result :"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem>
+                <apex:inputText value="{!result}" id="res"/><apex:actionStatus id="sts" startText="Finding......"/>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection>
+        	<apex:commandButton value="Find" action="{!find}" reRender="res"  status="sts" />
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>
+
+
+==============================================================================================================
